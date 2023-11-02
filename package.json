@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
-    "build": "rimraf ./dist && npx prisma generate --data-proxy && npm run compile && node ./dist/index.js",
-    "postinstall": "npx prisma generate --data-proxy",
-    "dev": "npm run compile && npx prisma generate --data-proxy",
+    "build": "rimraf ./dist && npx prisma generate --no-engine && npm run compile && node ./dist/index.js",
+    "postinstall": "npx prisma generate --no-engine",
+    "dev": "npm run compile && npx prisma generate --no-engine",
     "start": "npm run dev && node ./dist/index.js"
   },
   "keywords": [],
