@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
-    "build": "npm run compile && node ./dist/index.js",
+    "build": "rimraf ./dist && npx prisma generate --data-proxy && npm run compile && node ./dist/index.js",
     "postinstall": "npx prisma generate --data-proxy",
-    "dev": "npm run compile && npx prisma generate --data-proxy && node ./dist/index.js",
-    "start": "nodemon --watch ./src --exec \"npm run dev\""
+    "dev": "npm run compile && npx prisma generate --data-proxy",
+    "start": "npm run dev && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +47,7 @@
     "@types/passport": "^1.0.12",
     "@types/passport-google-oauth20": "^2.0.11",
     "prisma": "^5.5.2",
+    "rimraf": "^5.0.5",
     "typescript": "^5.1.6"
   }
 }
